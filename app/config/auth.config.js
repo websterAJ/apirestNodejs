@@ -1,3 +1,4 @@
 module.exports = {
-    secret: "websterAjmaster"
+    secret: "websterAjmaster",
+    expiresIn: '25min'
 };

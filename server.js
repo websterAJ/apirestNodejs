@@ -47,7 +47,7 @@ function initial() {
     id: 1,
     username:"admin",
     password:bcrypt.hashSync("admin123", 8),
-    roles:["user","admin"]
+    enabled: true
   });
 }
 

@@ -11,12 +11,16 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     idle: dbConfig.pool.idle
   }
 });
-const db = {};
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-db.personas = require("./personas.model.js")(sequelize, Sequelize);
-db.usuarios = require("./usuarios.model.js")(sequelize, Sequelize);
-db.roles = require("./roles.model.js")(sequelize, Sequelize);
+const db      = {};
+db.Sequelize  = Sequelize;
+db.sequelize  = sequelize;
+db.personas   = require("./personas.model.js")(sequelize, Sequelize);
+db.usuarios   = require("./usuarios.model.js")(sequelize, Sequelize);
+db.roles      = require("./roles.model.js")(sequelize, Sequelize);
+
+db.oficiales      = require("./oficiales.model.js")(sequelize, Sequelize);
+db.destacamento   = require("./destacamento.model.js")(sequelize, Sequelize);
+db.tropa          = require("./tropa.model.js")(sequelize, Sequelize);
 
 //relaciones de base de datos
 

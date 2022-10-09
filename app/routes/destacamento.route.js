@@ -1,5 +1,5 @@
 const { authJwt } = require("../middleware");
-const usuarios = require("../controllers/usuarios.controller");
+const destacamento = require("../controllers/destacamento.controllers");
 module.exports = function(app){
     app.use(function(req, res, next) {
       res.header(
@@ -8,5 +8,5 @@ module.exports = function(app){
       );
       next();
     });
-    app.get("/api/users/all",[authJwt.verifyToken], usuarios.findAll);
+    app.get("/api/destacamentos/all",[authJwt.verifyToken, authJwt.isAdmin], destacamento.findAll);
 };

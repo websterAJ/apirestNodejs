@@ -1,5 +1,5 @@
 const { authJwt } = require("../middleware");
-const usuarios = require("../controllers/usuarios.controller");
+const tropa = require("../controllers/tropa.controllers");
 module.exports = function(app){
     app.use(function(req, res, next) {
       res.header(
@@ -8,5 +8,5 @@ module.exports = function(app){
       );
       next();
     });
-    app.get("/api/users/all",[authJwt.verifyToken], usuarios.findAll);
+    app.get("/api/tropas/all",[authJwt.verifyToken, authJwt.isAdmin], tropa.findAll);
 };
